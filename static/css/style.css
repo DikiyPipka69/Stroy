@@ -1,0 +1,141 @@
+/* ---------- Цвета и тема ---------- */
+:root {
+  --bg: #F3F0EA;
+  --ink: #1E2327;
+  --muted: #566069;
+  --card: #FFFFFF;
+  --line: #D9D4CB;
+  --accent: #F2A33A;   /* янтарь: кнопки и акценты */
+  --on: #1E2327;       /* текст на акценте */
+  --error: #B3261E;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #14181B;
+    --ink: #EEF0F1;
+    --muted: #A2ABB2;
+    --card: #1D2327;
+    --line: #2F383E;
+    --error: #FF8A80;
+  }
+}
+
+/* ---------- База ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-padding-top: 72px; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 'Manrope', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif; }
+h1, h2, h3, .logo { font-family: 'Oswald', 'Arial Narrow', Impact, sans-serif; font-weight: 500; line-height: 1.15; margin: 0; }
+h1 { font-size: clamp(34px, 7vw, 64px); text-transform: uppercase; letter-spacing: .01em; }
+h2 { font-size: clamp(26px, 4.5vw, 36px); text-transform: uppercase; margin-bottom: 20px; }
+h3 { font-size: 20px; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.wrap { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+.sec { padding-top: 56px; padding-bottom: 8px; }
+.sub { color: var(--muted); font-size: 15px; margin: -10px 0 22px; max-width: 62ch; }
+
+/* ---------- Шапка ---------- */
+.note { background: var(--accent); color: var(--on); font-size: 13px; text-align: center; padding: 6px 12px; font-weight: 500; }
+header { position: sticky; top: 0; z-index: 20; background: var(--bg); border-bottom: 1px solid var(--line); }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 60px; }
+.logo { font-size: 24px; text-transform: uppercase; text-decoration: none; letter-spacing: .04em; }
+nav { display: flex; gap: 22px; align-items: center; }
+nav a { text-decoration: none; font-size: 15px; }
+
+/* ---------- Кнопки ---------- */
+.btn { display: inline-block; background: var(--accent); color: var(--on); border: 0; border-radius: 6px; padding: 14px 26px; font: 700 16px 'Manrope', system-ui, sans-serif; text-decoration: none; cursor: pointer; }
+.btn.sm { padding: 9px 16px; font-size: 14px; }
+.btn.ghost { background: transparent; color: var(--ink); border: 2px solid var(--line); }
+.btn:disabled { opacity: .6; cursor: wait; }
+.link { background: none; border: 0; padding: 0; font: inherit; color: var(--ink); text-decoration: underline; cursor: pointer; }
+
+/* ---------- Первый экран: фон-чертёж ---------- */
+.hero { position: relative; padding: 72px 0 64px; overflow: hidden; }
+.hero::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: linear-gradient(#000 30%, transparent);
+  mask-image: linear-gradient(#000 30%, transparent);
+}
+.hero .wrap { position: relative; }
+.lead { font-size: 18px; color: var(--muted); max-width: 52ch; margin: 20px 0 28px; }
+.cta { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* ---------- Карточки ---------- */
+.grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.card { background: var(--card); border: 1px solid var(--line); border-top: 4px solid var(--accent); border-radius: 6px; padding: 22px; }
+.card p { margin: 10px 0 0; color: var(--muted); font-size: 15px; }
+
+/* ---------- Калькулятор ---------- */
+.calc { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; align-items: start; }
+.calc-form { background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 24px; display: grid; gap: 22px; }
+.result { background: var(--ink); color: var(--bg); border-radius: 6px; padding: 24px; }
+.result .small { font-size: 14px; opacity: .8; margin: 0; }
+.result .big { font: 600 clamp(24px, 4vw, 34px)/1.2 'Oswald', sans-serif; margin: 10px 0 14px; }
+.result .btn { margin-top: 18px; }
+label, legend { display: grid; gap: 6px; font-size: 14px; color: var(--muted); }
+fieldset { border: 0; margin: 0; padding: 0; }
+legend { padding: 0; margin-bottom: 8px; }
+.field { display: grid; gap: 6px; }
+.field label { display: block; }
+.field small { color: var(--muted); font-size: 13px; }
+.area-row { display: grid; grid-template-columns: 1fr 110px; gap: 14px; align-items: center; }
+input[type="range"] { width: 100%; accent-color: var(--accent); }
+input, select, textarea { font: 16px 'Manrope', system-ui, sans-serif; padding: 12px 14px; border-radius: 6px; border: 1.5px solid var(--line); background: var(--card); color: var(--ink); width: 100%; }
+textarea { resize: vertical; }
+.segs { display: flex; gap: 8px; flex-wrap: wrap; }
+.seg { position: relative; display: block; }
+.seg input { position: absolute; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.seg span { display: block; padding: 10px 18px; border: 1.5px solid var(--line); border-radius: 6px; color: var(--ink); font-size: 15px; }
+.seg input:checked + span { background: var(--accent); color: var(--on); border-color: var(--accent); font-weight: 700; }
+.seg input:focus-visible + span { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* ---------- Этапы, объекты, FAQ ---------- */
+.steps { list-style: none; counter-reset: s; margin: 0; padding: 0; display: grid; gap: 14px; max-width: 720px; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start; }
+.steps li::before { content: counter(s); display: grid; place-items: center; width: 44px; height: 44px; background: var(--accent); color: var(--on); font: 600 20px 'Oswald', sans-serif; border-radius: 6px; }
+.obj { display: grid; gap: 4px; }
+.obj span { color: var(--muted); font-size: 14px; }
+.ph { aspect-ratio: 4/3; border-radius: 6px; margin-bottom: 8px; border: 1px solid var(--line); background-size: 22px 22px; }
+.ph1 { background-color: #8D9A8B; background-image: repeating-linear-gradient(45deg, rgba(255,255,255,.12) 0 2px, transparent 2px 11px); }
+.ph2 { background-color: #A69B8C; background-image: repeating-linear-gradient(-45deg, rgba(255,255,255,.14) 0 2px, transparent 2px 11px); }
+.ph3 { background-color: #7E8B96; background-image: repeating-linear-gradient(0deg, rgba(255,255,255,.12) 0 2px, transparent 2px 11px); }
+details { border-bottom: 1px solid var(--line); padding: 14px 0; }
+summary { cursor: pointer; font-weight: 700; }
+details p { margin: 8px 0 0; color: var(--muted); }
+
+/* ---------- Форма заявки ---------- */
+.two { display: grid; grid-template-columns: 1.2fr 1fr; gap: 36px; }
+form#lead-form { display: grid; gap: 16px; max-width: 480px; }
+dl { margin: 0; }
+dt { color: var(--muted); font-size: 14px; margin-top: 14px; }
+dt:first-child { margin-top: 0; }
+dd { margin: 2px 0 0; }
+.check { display: flex; gap: 10px; align-items: flex-start; font-size: 14px; }
+.check input { width: 20px; height: 20px; margin-top: 2px; flex: none; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.attached { display: flex; justify-content: space-between; gap: 12px; align-items: flex-start; background: var(--card); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: 6px; padding: 12px 14px; font-size: 14px; }
+.err { color: var(--error); min-height: 1.4em; font-size: 15px; }
+.ok { background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 22px; max-width: 480px; }
+footer.f { margin-top: 56px; border-top: 1px solid var(--line); padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
+
+/* ---------- Админка (/admin) ---------- */
+.admin { padding: 32px 20px; }
+.admin h1 { font-size: 32px; }
+.tablewrap { overflow-x: auto; margin-top: 20px; }
+table { border-collapse: collapse; width: 100%; min-width: 720px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--muted); font-weight: 500; font-size: 14px; }
+
+/* ---------- Телефон ---------- */
+@media (max-width: 760px) {
+  .hide-sm { display: none; }
+  .grid3, .calc, .two { grid-template-columns: 1fr; }
+  .hero { padding: 48px 0 40px; }
+}

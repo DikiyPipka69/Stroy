@@ -1,0 +1,15 @@
+{
+  "types": [
+    {"id": "repair_cosmetic", "group": "Ремонт квартиры", "name": "Косметический ремонт", "price_m2": 4500, "min_area": 15, "max_area": 300},
+    {"id": "repair_capital", "group": "Ремонт квартиры", "name": "Капитальный ремонт", "price_m2": 9000, "min_area": 15, "max_area": 300},
+    {"id": "repair_design", "group": "Ремонт квартиры", "name": "Дизайнерский ремонт", "price_m2": 15000, "min_area": 15, "max_area": 300},
+    {"id": "house_frame", "group": "Строительство дома", "name": "Каркасный дом", "price_m2": 32000, "min_area": 40, "max_area": 500},
+    {"id": "house_block", "group": "Строительство дома", "name": "Дом из газобетона", "price_m2": 45000, "min_area": 40, "max_area": 500}
+  ],
+  "levels": [
+    {"id": "economy", "name": "Эконом", "k": 1.0},
+    {"id": "standard", "name": "Стандарт", "k": 1.25},
+    {"id": "premium", "name": "Премиум", "k": 1.7}
+  ],
+  "spread": 0.1
+}

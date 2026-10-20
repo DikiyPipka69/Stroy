@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Основа — строительство домов и ремонт квартир</title>
+  <meta name="description" content="Демо-сайт строительной компании: калькулятор стоимости, этапы работ, заявка.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🏗️%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="note">Демо-сайт: компания, цены и контакты вымышлены. Не вводите в форму реальные данные.</div>
+
+  <header>
+    <div class="wrap bar">
+      <a class="logo" href="#top">Основа</a>
+      <nav aria-label="Основное меню">
+        <a class="hide-sm" href="#directions">Направления</a>
+        <a class="hide-sm" href="#calc">Калькулятор</a>
+        <a class="hide-sm" href="#process">Как работаем</a>
+        <a class="btn sm" href="#request">Оставить заявку</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <h1>Построим дом.<br>Отремонтируем квартиру.</h1>
+        <p class="lead">Фиксированная смета до начала работ, договор и поэтапная оплата. Посчитайте ориентировочную стоимость за полминуты.</p>
+        <div class="cta">
+          <a class="btn" href="#calc">Рассчитать стоимость</a>
+          <a class="btn ghost" href="#process">Как мы работаем</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="directions" class="wrap sec">
+      <h2>Направления</h2>
+      <div class="grid3">
+        <div class="card"><h3>Строительство домов</h3><p>Каркасные дома и дома из газобетона под ключ: проект, фундамент, коробка, коммуникации, отделка.</p></div>
+        <div class="card"><h3>Капитальный ремонт</h3><p>Со сменой планировки и коммуникаций: стяжка, электрика, сантехника, чистовая отделка.</p></div>
+        <div class="card"><h3>Косметический и дизайнерский</h3><p>Обновление отделки или ремонт по индивидуальному проекту с подбором материалов.</p></div>
+      </div>
+    </section>
+
+    <section id="calc" class="wrap sec">
+      <h2>Калькулятор стоимости</h2>
+      <p class="sub">Расчёт ориентировочный, цены в демо вымышлены. Точную смету составит специалист после замеров.</p>
+      <div class="calc">
+        <form id="calc-form" class="calc-form" novalidate>
+          <label>Что делаем
+            <select id="work-type"></select>
+          </label>
+          <div class="field">
+            <label for="area">Площадь, м²</label>
+            <div class="area-row">
+              <input id="area-range" type="range" min="15" max="300" value="60" aria-label="Площадь, ползунок">
+              <input id="area" type="number" inputmode="numeric" min="15" max="300" value="60">
+            </div>
+            <small id="area-hint"></small>
+          </div>
+          <fieldset>
+            <legend>Уровень отделки</legend>
+            <div class="segs" id="levels"></div>
+          </fieldset>
+        </form>
+        <div class="result" aria-live="polite">
+          <p class="small" id="calc-status">Загружаем калькулятор…</p>
+          <p class="big" id="calc-range">—</p>
+          <p class="small">Диапазон учитывает разброс цен на материалы и сложность работ.</p>
+          <button class="btn" type="button" id="calc-cta" hidden>Получить точную смету</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="wrap sec">
+      <h2>Как мы работаем</h2>
+      <ol class="steps">
+        <li><b>Замеры и смета.</b> Выезжаем на объект, считаем объёмы, фиксируем цену.</li>
+        <li><b>Договор.</b> В нём сроки, этапы и порядок оплаты. Без доплат по ходу работ.</li>
+        <li><b>Работы по этапам.</b> Вы видите отчёт после каждого этапа.</li>
+        <li><b>Приёмка.</b> Проверяем вместе, недочёты исправляем без доплат.</li>
+        <li><b>Гарантия.</b> Гарантийные обязательства прописаны в договоре.</li>
+      </ol>
+    </section>
+
+    <section class="wrap sec">
+      <h2>Примеры объектов</h2>
+      <p class="sub">Заглушки: в реальном проекте здесь фотографии выполненных работ.</p>
+      <div class="grid3">
+        <div class="obj"><div class="ph ph1" role="img" aria-label="Заглушка вместо фото"></div><b>Каркасный дом, 120 м²</b><span>4 месяца, уровень «Стандарт»</span></div>
+        <div class="obj"><div class="ph ph2" role="img" aria-label="Заглушка вместо фото"></div><b>Капитальный ремонт, 65 м²</b><span>2,5 месяца, трёхкомнатная квартира</span></div>
+        <div class="obj"><div class="ph ph3" role="img" aria-label="Заглушка вместо фото"></div><b>Дом из газобетона, 160 м²</b><span>6 месяцев, уровень «Премиум»</span></div>
+      </div>
+    </section>
+
+    <section class="wrap sec">
+      <h2>Частые вопросы</h2>
+      <details><summary>Насколько точен расчёт на сайте?</summary><p>Он ориентировочный. Точную смету мы составляем после выезда на объект и фиксируем в договоре.</p></details>
+      <details><summary>Можно ли платить по этапам?</summary><p>Да, порядок оплаты прописывается в договоре и привязан к этапам работ.</p></details>
+      <details><summary>Что входит в уровень «Премиум»?</summary><p>Материалы и оборудование верхнего ценового сегмента и индивидуальные решения по отделке.</p></details>
+    </section>
+
+    <section id="request" class="wrap sec">
+      <h2>Оставить заявку</h2>
+      <div class="two">
+        <div>
+          <form id="lead-form" novalidate>
+            <div class="attached" id="attached" hidden>
+              <span id="attached-text"></span>
+              <button type="button" class="link" id="attached-remove">Убрать расчёт</button>
+            </div>
+            <label>Ваше имя<input id="f-name" autocomplete="given-name" maxlength="60"></label>
+            <label>Телефон<input id="f-phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 900 000-00-00" maxlength="30"></label>
+            <label>Комментарий (необязательно)<textarea id="f-comment" rows="3" maxlength="500"></textarea></label>
+            <div class="hp" aria-hidden="true"><label>Сайт<input id="f-website" tabindex="-1" autocomplete="off"></label></div>
+            <label class="check"><input type="checkbox" id="f-consent"><span>Согласен на обработку персональных данных, <a href="#privacy">политика конфиденциальности</a></span></label>
+            <div class="err" id="form-error" role="alert"></div>
+            <button class="btn" type="submit" id="submit-btn">Отправить заявку</button>
+          </form>
+          <div class="ok" id="form-ok" hidden><b>Заявка принята.</b><br>Это демо: никто не позвонит. Заявка сохранена в базе проекта и видна владельцу в закрытой админке.</div>
+        </div>
+        <dl>
+          <dt>Адрес офиса</dt><dd>г. Ваш город, ул. Примерная, 10</dd>
+          <dt>Часы работы</dt><dd>Пн–Сб, 9:00 – 19:00</dd>
+          <dt>Телефон</dt><dd>+7 900 000-00-00</dd>
+          <dt>Почта</dt><dd>info@osnova.example</dd>
+        </dl>
+      </div>
+    </section>
+
+    <section id="privacy" class="wrap sec">
+      <h2>Политика конфиденциальности</h2>
+      <p class="sub">Демо-страница. В реальном проекте здесь текст политики, подготовленный для конкретной компании: какие данные собираются, зачем, где хранятся и как их удалить.</p>
+    </section>
+  </main>
+
+  <footer class="f"><div class="wrap">Концепт сайта для строительной компании. Хотите такой же? Напишите автору.</div></footer>
+
+  <script src="/static/js/main.js"></script>
+</body>
+</html>
